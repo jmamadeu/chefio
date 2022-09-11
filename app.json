@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "chefio",
+    "slug": "chefio",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
