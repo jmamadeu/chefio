@@ -1,4 +1,4 @@
-import { Image, Pressable, SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 const OnboardingImg = require('../../assets/Onboarding.png');
 
@@ -15,9 +15,9 @@ export const HomeScreen = () => {
       </View>
 
       <View style={styles.buttonContainer}>
-        <Pressable style={styles.button}>
+        <TouchableOpacity style={styles.button} activeOpacity={0.8}>
           <Text style={styles.buttonText}>Get Started</Text>
-        </Pressable>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );

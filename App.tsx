@@ -1,3 +1,4 @@
+import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
@@ -7,7 +8,9 @@ import { HomeScreen } from '~/screens/home/home';
 export const App = () => {
   return (
     <View style={styles.container}>
-      <HomeScreen />
+      <NavigationContainer>
+        <HomeScreen />
+      </NavigationContainer>
       <StatusBar style="auto" />
     </View>
   );
