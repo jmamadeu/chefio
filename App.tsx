@@ -3,13 +3,13 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
-import { HomeScreen } from '~/screens/home/home';
+import { Router } from '~/routes/router';
 
 export const App = () => {
   return (
     <View style={styles.container}>
       <NavigationContainer>
-        <HomeScreen />
+        <Router />
       </NavigationContainer>
       <StatusBar style="auto" />
     </View>

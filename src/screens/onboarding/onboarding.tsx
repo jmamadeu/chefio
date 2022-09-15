@@ -1,8 +1,20 @@
+import { useNavigation } from '@react-navigation/native';
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+
+import type { RootStackParamList } from '~/routes/router';
 
 const OnboardingImg = require('../../assets/Onboarding.png');
 
-export const HomeScreen = () => {
+type OnboardingScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Onboarding'>;
+
+export const OnboardingScreen = () => {
+  const navigation = useNavigation<OnboardingScreenNavigationProp>();
+
+  const handleButtonClick = () => {
+    navigation.navigate('SignIn');
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <Image source={OnboardingImg} style={styles.image} />
@@ -15,7 +27,7 @@ export const HomeScreen = () => {
       </View>
 
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button} activeOpacity={0.8}>
+        <TouchableOpacity style={styles.button} activeOpacity={0.8} onPress={handleButtonClick}>
           <Text style={styles.buttonText}>Get Started</Text>
         </TouchableOpacity>
       </View>
