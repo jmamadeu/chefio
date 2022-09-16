@@ -8,5 +8,10 @@ export const colors = {
   form: '#F4F5F7',
 
   white: '#fff',
-  black: '#000'
+  black: '#000',
+
+  social: {
+    google: '#FF5842',
+    facebook: '#4267B2'
+  }
 };
