@@ -10,7 +10,7 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useCallback } from 'react';
 import { StyleSheet, View } from 'react-native';
 
-import { Router } from '~/routes/router';
+import { Router } from '~/routes';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -33,9 +33,8 @@ export const App = () => {
 
   return (
     <View style={styles.container} onLayout={onLayoutRootView}>
-      <NavigationContainer>
-        <Router />
-      </NavigationContainer>
+      <Router />
+
       <StatusBar style="auto" />
     </View>
   );

@@ -3,7 +3,7 @@ import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Image, SafeAreaView, StyleSheet, Text, View } from 'react-native';
 
 import { Button, ButtonText } from '~/button/button';
-import type { RootStackParamList } from '~/routes/router';
+import type { RootStackParamList } from '~/routes';
 import { theme } from '~/theme';
 
 const OnboardingImg = require('../../assets/Onboarding.png');
@@ -29,7 +29,7 @@ export const OnboardingScreen = () => {
       </View>
 
       <View style={styles.buttonContainer}>
-        <Button activeOpacity={0.8} onPress={handleButtonClick}>
+        <Button style={styles.button} activeOpacity={0.8} onPress={handleButtonClick}>
           <ButtonText>Get Started</ButtonText>
         </Button>
       </View>
@@ -60,5 +60,8 @@ const styles = StyleSheet.create({
   buttonContainer: {
     width: '100%',
     paddingHorizontal: 24
+  },
+  button: {
+    backgroundColor: theme.colors.primary
   }
 });

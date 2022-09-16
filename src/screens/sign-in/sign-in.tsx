@@ -5,7 +5,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Button, ButtonText } from '~/button/button';
-import type { RootStackParamList } from '~/routes/router';
+import type { RootStackParamList } from '~/routes';
 import { theme } from '~/theme';
 
 type SignInScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'SignIn'>;
@@ -14,7 +14,7 @@ export const SignInScreen = () => {
   const navigate = useNavigation<SignInScreenNavigationProp>();
 
   const handleSocialLoginButtonClick = () => {
-    navigate.navigate('Home');
+    navigate.navigate('HomeTabsNavigator');
   };
   return (
     <SafeAreaView style={styles.container}>
