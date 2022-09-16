@@ -3,6 +3,7 @@ import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 import type { RootStackParamList } from '~/routes/router';
+import { theme } from '~/theme';
 
 const OnboardingImg = require('../../assets/Onboarding.png');
 
@@ -48,17 +49,12 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   mainText: {
-    color: '#2E3E5C',
-    fontSize: 22,
-    fontWeight: '700',
-    marginBottom: 16
+    marginBottom: 16,
+    ...theme.typography.h1
   },
   secondaryText: {
-    color: '#9FA5C0',
-    fontSize: 17,
-    fontWeight: '400',
     textAlign: 'center',
-    lineHeight: 27
+    ...theme.typography.p1
   },
   buttonContainer: {
     width: '100%',
@@ -72,8 +68,8 @@ const styles = StyleSheet.create({
     borderRadius: 32
   },
   buttonText: {
-    color: '#fff',
-    fontWeight: 'bold',
-    fontSize: 15
+    ...theme.typography.p1,
+    fontFamily: theme.fonts.Bold,
+    color: theme.colors.white
   }
 });
