@@ -11,7 +11,7 @@ export const colors = {
   black: '#000',
 
   social: {
-    google: '#FF5842',
+    google: '#DB4437',
     facebook: '#4267B2'
   }
 };

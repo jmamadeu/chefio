@@ -4,7 +4,6 @@ import {
   Inter_900Black as Inter900Black,
   useFonts
 } from '@expo-google-fonts/inter';
-import { NavigationContainer } from '@react-navigation/native';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import React, { useCallback } from 'react';

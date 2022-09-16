@@ -1,8 +1,8 @@
 import { useNavigation } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { Image, SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { Image, SafeAreaView, StatusBar, StyleSheet, Text, View } from 'react-native';
 
-import { Button, ButtonText } from '~/button/button';
+import { Button, ButtonText } from '~/components/button/button';
 import type { RootStackParamList } from '~/routes';
 import { theme } from '~/theme';
 
@@ -18,22 +18,26 @@ export const OnboardingScreen = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      <Image source={OnboardingImg} style={styles.image} />
+    <>
+      <SafeAreaView style={styles.container}>
+        <Image source={OnboardingImg} style={styles.image} />
 
-      <View style={styles.contentContainer}>
-        <Text style={styles.mainText}>Start Cooking</Text>
-        <Text style={styles.secondaryText}>
-          Let&apos;s join our community {`\n`} to cook better food!
-        </Text>
-      </View>
+        <View style={styles.contentContainer}>
+          <Text style={styles.mainText}>Start Cooking</Text>
+          <Text style={styles.secondaryText}>
+            Let&apos;s join our community {`\n`} to cook better food!
+          </Text>
+        </View>
 
-      <View style={styles.buttonContainer}>
-        <Button style={styles.button} activeOpacity={0.8} onPress={handleButtonClick}>
-          <ButtonText>Get Started</ButtonText>
-        </Button>
-      </View>
-    </SafeAreaView>
+        <View style={styles.buttonContainer}>
+          <Button style={styles.button} activeOpacity={0.8} onPress={handleButtonClick}>
+            <ButtonText>Get Started</ButtonText>
+          </Button>
+        </View>
+      </SafeAreaView>
+
+      <StatusBar barStyle="dark-content" />
+    </>
   );
 };
 

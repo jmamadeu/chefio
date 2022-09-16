@@ -1,4 +1,4 @@
-{ 
+{
   "extends": ["react-native-wcandillon", "prettier"],
   "rules": {
     "prefer-destructuring": [
@@ -27,6 +27,7 @@
         "usePrettierrc": true
       }
     ],
-    "import/no-extraneous-dependencies": "off"
+    "import/no-extraneous-dependencies": "off",
+    "react/no-unstable-nested-components": ["error", { "allowAsProps": true }]
   }
-} 
+}

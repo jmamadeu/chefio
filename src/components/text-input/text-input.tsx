@@ -1,18 +1,13 @@
 import { Feather } from '@expo/vector-icons';
-import { Pressable, StyleSheet, View } from 'react-native';
+import { Pressable, StyleSheet, TextInput as RNTextInput, View } from 'react-native';
 
 export const TextInput = () => {
   return (
     <View style={styles.textInputContainer}>
-      <Feather style={styles.icon} name="lock" size={20} color="#2E3E5C" />
-      <TextInput style={styles.input} placeholderTextColor="#9FA5C0" placeholder="Password" />
-      <Pressable onPress={togglePasswordShow}>
-        <Feather
-          style={styles.iconLeft}
-          name={`${isShownPassword ? 'eye' : 'eye-off'}`}
-          size={20}
-          color="#2E3E5C"
-        />
+      <Feather name="lock" size={20} color="#2E3E5C" />
+      <RNTextInput style={styles.input} placeholderTextColor="#9FA5C0" placeholder="Password" />
+      <Pressable>
+        <Feather name="eye" size={20} color="#2E3E5C" />
       </Pressable>
     </View>
   );

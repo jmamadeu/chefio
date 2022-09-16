@@ -1,10 +1,10 @@
-import { FontAwesome } from '@expo/vector-icons';
+import { FontAwesome, FontAwesome5 } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { Button, ButtonText } from '~/button/button';
+import { Button, ButtonText } from '~/components/button/button';
 import type { RootStackParamList } from '~/routes';
 import { theme } from '~/theme';
 
@@ -30,9 +30,9 @@ export const SignInScreen = () => {
             style={[styles.getStartedButton]}
             activeOpacity={0.8}
           >
-            <FontAwesome name="facebook" size={18} color={theme.colors.white} />
+            <FontAwesome5 name="facebook" size={20} color={theme.colors.white} />
 
-            <ButtonText style={styles.buttonText}>Facebook</ButtonText>
+            <ButtonText style={styles.buttonText}>Continue With Facebook</ButtonText>
           </Button>
 
           <View style={styles.divider} />
@@ -42,8 +42,8 @@ export const SignInScreen = () => {
             style={styles.googleButton}
             activeOpacity={0.8}
           >
-            <FontAwesome name="google" size={18} color={theme.colors.white} />
-            <ButtonText style={styles.buttonText}>Google</ButtonText>
+            <FontAwesome name="google" size={20} color={theme.colors.white} />
+            <ButtonText style={styles.buttonText}>Continue With Google</ButtonText>
           </Button>
 
           <View style={styles.divider} />
@@ -53,8 +53,8 @@ export const SignInScreen = () => {
             style={styles.appleButton}
             activeOpacity={0.8}
           >
-            <FontAwesome name="apple" size={18} color={theme.colors.white} />
-            <ButtonText style={styles.buttonText}>Apple</ButtonText>
+            <FontAwesome name="apple" size={20} color={theme.colors.white} />
+            <ButtonText style={styles.buttonText}>Continue With Apple</ButtonText>
           </Button>
         </View>
       </View>
