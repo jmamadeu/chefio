@@ -13,5 +13,13 @@ export const colors = {
   social: {
     google: '#DB4437',
     facebook: '#4267B2'
+  },
+
+  blue: {
+    100: '#3E5481'
+  },
+
+  grey: {
+    100: '#F4F5F7'
   }
 };

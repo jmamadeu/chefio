@@ -6,6 +6,7 @@ export const theme = {
   typography,
   fonts: {
     Bold: 'Inter-Bold',
-    Medium: 'Inter-Medium'
+    Medium: 'Inter-Medium',
+    Normal: 'Inter-Normal'
   }
 };

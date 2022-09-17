@@ -29,7 +29,8 @@ export const HomeTabsNavigator = () => {
           lineHeight: 15,
           fontSize: 12,
           fontFamily: 'Inter-Medium'
-        }
+        },
+        headerShown: false
       }}
     >
       <Tab.Screen

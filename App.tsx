@@ -2,6 +2,7 @@ import {
   Inter_500Medium as Inter500Medium,
   Inter_700Bold as Inter700Bold,
   Inter_900Black as Inter900Black,
+  Inter_400Regular as Inter400Regular,
   useFonts
 } from '@expo-google-fonts/inter';
 import * as SplashScreen from 'expo-splash-screen';
@@ -17,7 +18,8 @@ export const App = () => {
   const [fontsLoaded] = useFonts({
     'Inter-Bold': Inter700Bold,
     'Inter-Medium': Inter500Medium,
-    'Inter-Black': Inter900Black
+    'Inter-Black': Inter900Black,
+    'Inter-Normal': Inter400Regular
   });
 
   const onLayoutRootView = useCallback(async () => {
