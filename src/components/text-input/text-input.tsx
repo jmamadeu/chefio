@@ -1,14 +1,24 @@
-import { Feather } from '@expo/vector-icons';
-import { Pressable, StyleSheet, TextInput as RNTextInput, View } from 'react-native';
+import type { TextInputProps as RNTextInputProps, ViewStyle } from 'react-native';
+import { StyleSheet, TextInput as RNTextInput, View } from 'react-native';
 
-export const TextInput = () => {
+import { theme } from '~/theme';
+
+type TextInputProps = RNTextInputProps & {
+  right?: React.ReactNode;
+  left?: React.ReactNode;
+  viewStyle?: ViewStyle;
+};
+
+export const TextInput: React.FC<TextInputProps> = ({ right, left, style, viewStyle, ...rest }) => {
   return (
-    <View style={styles.textInputContainer}>
-      <Feather name="lock" size={20} color="#2E3E5C" />
-      <RNTextInput style={styles.input} placeholderTextColor="#9FA5C0" placeholder="Password" />
-      <Pressable>
-        <Feather name="eye" size={20} color="#2E3E5C" />
-      </Pressable>
+    <View style={[styles.textInputContainer, viewStyle]}>
+      {left && <View style={styles.left}>{left}</View>}
+      <RNTextInput
+        style={[styles.input, style]}
+        placeholderTextColor={theme.colors.secondaryText}
+        {...rest}
+      />
+      {right && <View style={styles.right}>{right}</View>}
     </View>
   );
 };
@@ -17,18 +27,22 @@ const styles = StyleSheet.create({
   textInputContainer: {
     borderRadius: 32,
     borderWidth: 1,
-    borderColor: '#D0DBEA',
+    borderColor: theme.colors.outline,
     flexDirection: 'row',
-    alignItems: 'center',
-
-    marginBottom: 16
+    alignItems: 'center'
+  },
+  left: {
+    marginLeft: 27
+  },
+  right: {
+    marginRight: 27
   },
   input: {
     flex: 1,
     height: 56,
     paddingLeft: 10,
     fontSize: 15,
-    fontWeight: '400',
-    color: '#3E5481'
+    fontFamily: theme.fonts.Medium,
+    color: theme.colors.primary
   }
 });
