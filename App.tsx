@@ -36,7 +36,7 @@ export const App = () => {
     <View style={styles.container} onLayout={onLayoutRootView}>
       <Router />
 
-      <StatusBar style="auto" />
+      <StatusBar style="dark" />
     </View>
   );
 };
