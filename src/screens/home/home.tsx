@@ -1,13 +1,13 @@
 import { Feather } from '@expo/vector-icons';
 import { FlatList, StyleSheet, Text, View, Platform, NativeModules, StatusBar } from 'react-native';
 import { FlashList } from '@shopify/flash-list';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { TextInput } from '~/components/text-input/text-input';
 import { theme } from '~/theme';
 import { Chip } from '~/components/button/chips';
 import { RecipeCard } from '~/components/recipe-card/recipe-card';
-
-const STATUSBAR_HEIGHT = Platform.OS === 'ios' ? 50 : StatusBar.currentHeight;
+import { useGetStatusBarHeight } from '~/hooks/usse-get-status-bar-height';
 
 const data = [
   {
@@ -37,8 +37,10 @@ const data = [
 ];
 
 export const HomeScreen = () => {
+  const STATUSBAR_HEIGHT = useGetStatusBarHeight();
+
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { paddingTop: STATUSBAR_HEIGHT }]}>
       <View style={styles.paddingHorizontal}>
         <TextInput
           viewStyle={styles.inputSearch}
@@ -84,8 +86,7 @@ export const HomeScreen = () => {
 export const styles = StyleSheet.create({
   container: {
     backgroundColor: theme.colors.white,
-    flex: 1,
-    paddingTop: STATUSBAR_HEIGHT
+    flex: 1
   },
   paddingHorizontal: {
     marginHorizontal: 24

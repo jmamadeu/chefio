@@ -9,6 +9,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import React, { useCallback } from 'react';
 import { StyleSheet, View } from 'react-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { Router } from '~/routes';
 
@@ -33,16 +34,10 @@ export const App = () => {
   }
 
   return (
-    <View style={styles.container} onLayout={onLayoutRootView}>
+    <SafeAreaProvider onLayout={onLayoutRootView}>
       <Router />
 
       <StatusBar style="dark" />
-    </View>
+    </SafeAreaProvider>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  }
-});
