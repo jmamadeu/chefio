@@ -1,7 +1,6 @@
 import { Feather } from '@expo/vector-icons';
-import { FlatList, StyleSheet, Text, View, Platform, NativeModules, StatusBar } from 'react-native';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
 import { FlashList } from '@shopify/flash-list';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { TextInput } from '~/components/text-input/text-input';
 import { theme } from '~/theme';
@@ -73,7 +72,7 @@ export const HomeScreen = () => {
         <FlashList
           renderItem={() => <RecipeCard />}
           estimatedItemSize={50}
-          data={[1, 2, 3, 4, 5, 6]}
+          data={[1, 2, 3, 4, 5, 6, 7, 8]}
           numColumns={2}
           showsVerticalScrollIndicator={false}
           ItemSeparatorComponent={() => <View style={{ height: 32 }} />}

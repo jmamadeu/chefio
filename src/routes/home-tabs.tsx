@@ -1,6 +1,5 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { MaterialCommunityIcons, MaterialIcons, Ionicons } from '@expo/vector-icons';
-import { View } from 'react-native';
+import { MaterialIcons } from '@expo/vector-icons';
 
 import { HomeScreen, NotificationScreen, ProfileScreen, ScanScreen, UploadScreen } from '~/screens';
 import { theme } from '~/theme';
@@ -13,16 +12,26 @@ export type HomeBottomTabsParamList = {
   Profile: undefined;
 };
 
-const Tab = createBottomTabNavigator<HomeBottomTabsParamList>();
+type MaterialIconName = React.ComponentProps<typeof MaterialIcons>['name'];
 
-function getIconColor(focused: boolean) {
-  return focused ? theme.colors.primary : theme.colors.secondaryText;
-}
+type IconProps = {
+  [key: string]: MaterialIconName;
+};
+
+const icons: IconProps = {
+  Home: 'home-filled',
+  Upload: 'mode-edit',
+  Scan: 'qr-code-scanner',
+  Notification: 'notifications',
+  Profile: 'person'
+};
+
+const Tab = createBottomTabNavigator<HomeBottomTabsParamList>();
 
 export const HomeTabsNavigator = () => {
   return (
     <Tab.Navigator
-      screenOptions={{
+      screenOptions={({ route }) => ({
         tabBarActiveTintColor: theme.colors.primary,
         tabBarInactiveTintColor: theme.colors.secondaryText,
         tabBarLabelStyle: {
@@ -30,58 +39,17 @@ export const HomeTabsNavigator = () => {
           fontSize: 12,
           fontFamily: 'Inter-Medium'
         },
-        headerShown: false
-      }}
+        headerShown: false,
+        tabBarIcon: ({ color }) => (
+          <MaterialIcons name={icons[route.name]} size={24} color={color} />
+        )
+      })}
     >
-      <Tab.Screen
-        name="Home"
-        options={{
-          tabBarIcon: ({ focused }) => (
-            <MaterialCommunityIcons name="home-variant" size={24} color={getIconColor(focused)} />
-          )
-        }}
-        component={HomeScreen}
-      />
-
-      <Tab.Screen
-        name="Upload"
-        options={{
-          tabBarIcon: ({ focused }) => (
-            <MaterialIcons name="edit" size={24} color={getIconColor(focused)} />
-          )
-        }}
-        component={UploadScreen}
-      />
-
-      <Tab.Screen
-        name="Scan"
-        options={{
-          tabBarIcon: ({ focused }) => (
-            <MaterialCommunityIcons name="magnify-scan" size={24} color={getIconColor(focused)} />
-          )
-        }}
-        component={ScanScreen}
-      />
-
-      <Tab.Screen
-        name="Notification"
-        options={{
-          tabBarIcon: ({ focused }) => (
-            <Ionicons name="md-notifications" size={24} color={getIconColor(focused)} />
-          )
-        }}
-        component={NotificationScreen}
-      />
-
-      <Tab.Screen
-        name="Profile"
-        options={{
-          tabBarIcon: ({ focused }) => (
-            <MaterialIcons name="person" size={24} color={getIconColor(focused)} />
-          )
-        }}
-        component={ProfileScreen}
-      />
+      <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="Upload" component={UploadScreen} />
+      <Tab.Screen name="Scan" component={ScanScreen} />
+      <Tab.Screen name="Notification" component={NotificationScreen} />
+      <Tab.Screen name="Profile" component={ProfileScreen} />
     </Tab.Navigator>
   );
 };
