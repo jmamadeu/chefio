@@ -6,13 +6,19 @@ import { theme } from '~/theme';
 type ChipProps = TouchableOpacityProps & {
   children: React.ReactNode;
   selected?: boolean;
+  outlined?: boolean;
 };
 
-export const Chip: React.FC<ChipProps> = ({ children, selected, style, ...props }) => {
+export const Chip: React.FC<ChipProps> = ({ children, selected, outlined, style, ...props }) => {
   return (
     <TouchableOpacity
       activeOpacity={0.8}
-      style={[styles.button, selected ? styles.selected : styles.defaultColor, style]}
+      style={[
+        styles.button,
+        selected ? styles.selected : styles.defaultColor,
+        outlined && styles.outlined,
+        style
+      ]}
       {...props}
     >
       <Text style={[styles.text, selected ? styles.selectedText : styles.textColor]}>
@@ -44,5 +50,10 @@ const styles = StyleSheet.create({
   },
   textColor: {
     color: theme.colors.secondaryText
+  },
+  outlined: {
+    backgroundColor: theme.colors.white,
+    borderColor: theme.colors.outline,
+    borderWidth: 2
   }
 });

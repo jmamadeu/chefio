@@ -3,16 +3,22 @@ import { Feather } from '@expo/vector-icons';
 
 import { theme } from '~/theme';
 
-export const RecipeCard = () => {
+type RecipeCardProps = {
+  authorShown?: boolean;
+};
+
+export const RecipeCard: React.FC<RecipeCardProps> = ({ authorShown = true }) => {
   return (
     <View>
-      <View style={styles.authorContainer}>
-        <Image
-          source={{ uri: 'https://avatars.githubusercontent.com/u/59426856?v=4' }}
-          style={styles.image}
-        />
-        <Text style={styles.authorName}>João Amadeu</Text>
-      </View>
+      {authorShown && (
+        <View style={styles.authorContainer}>
+          <Image
+            source={{ uri: 'https://avatars.githubusercontent.com/u/59426856?v=4' }}
+            style={styles.image}
+          />
+          <Text style={styles.authorName}>João Amadeu</Text>
+        </View>
+      )}
 
       <View style={styles.imageContainer}>
         <Image
@@ -22,7 +28,7 @@ export const RecipeCard = () => {
           }}
         />
         <TouchableOpacity style={styles.favoriteButton} activeOpacity={0.8}>
-          <Feather name="heart" size={20} color="white" />
+          <Feather name="heart" size={22} color="white" />
         </TouchableOpacity>
       </View>
 

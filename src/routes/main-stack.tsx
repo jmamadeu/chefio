@@ -2,11 +2,14 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { HomeTabsNavigator } from './home-tabs';
 
-import { OnboardingScreen, SignInScreen } from '~/screens';
+import { OnboardingScreen, ProfileScreen, SignInScreen } from '~/screens';
 
 export type RootStackParamList = {
   Onboarding: undefined;
   SignIn: undefined;
+  Profile: {
+    itsMe: boolean;
+  };
   HomeTabsNavigator: undefined;
 };
 

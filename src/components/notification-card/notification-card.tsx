@@ -35,7 +35,7 @@ export const NotificationCard: React.FC<NotificationCardProps> = ({ type }) => {
         />
       ) : null}
       {type === 'NewFollow' ? (
-        <TouchableOpacity style={styles.followButton}>
+        <TouchableOpacity style={styles.followButton} activeOpacity={0.8}>
           <Text style={styles.buttonText}>Follow</Text>
         </TouchableOpacity>
       ) : null}
